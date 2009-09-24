@@ -11,3 +11,6 @@ bfGen.o:	bfGen.cc bfGen.hh
 
 md5.o:	md5.c md5.h
 	$(CXX) -c md5.c
+
+clean:	
+	rm *.o md5bf
