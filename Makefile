@@ -1,2 +1,3 @@
-//test svn
 
+all: 
+	@echo All Done
