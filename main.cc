@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
-
+#include <stdio.h>
+#include <string.h>
 #include "md5.h"
-#include "bfGen.h"
+#include "bfGen.hh"
 void mymd(char instr[],char out[]);
 
 int main(int argc, char *argv[])
