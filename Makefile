@@ -5,6 +5,8 @@ DOBJJ =debug/objects/main.o debug/objects/bfGen.o debug/objects/md5.o debug/obje
 ROBJS = rmain.o rbfGen.o rmd5.o rcons.o
 ROBJJ =release/objects/main.o release/objects/bfGen.o release/objects/md5.o release/objects/cons.o
 
+RM = del /Q
+ 
 DBGFLAGS = -g -c -Wall
 RELFLAGS = -c -Wall
  
@@ -50,4 +52,4 @@ all:	debug release
 	@echo All Done
 	
 clean:	
-	rm *.o 
+	$(RM) debug\m* debug\objects\* release\m* release\objects\*
