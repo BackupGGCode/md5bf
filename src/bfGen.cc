@@ -51,7 +51,7 @@ int bfGen::getStr(char buff[],char hex_output[])
 	}
 	buff[length]=0;
 	genVars++;
-	
+
 	md5_state_t state;
 	md5_byte_t digest[16];
 	md5_init(&state);
@@ -73,4 +73,16 @@ int bfGen::getStr(char buff[],char hex_output[])
 
 	return 0;
 
+}
+
+int bfGen::makeMd(char in[],char out[])
+{
+	md5_state_t state;
+	md5_byte_t digest[16];
+	md5_init(&state);
+	md5_append(&state, (const md5_byte_t *)in, strlen(in));
+	md5_finish(&state, digest);
+	for (int di = 0; di < 16; ++di)
+	    sprintf(out + di * 2, "%02x", digest[di]);
+	return 0;
 }

@@ -15,6 +15,7 @@ private:
 public:
 	int incContor(int poz);
 	int getStr(char buff[],char md5[]);
+	static int makeMd(char buff[],char md5[]);
 	int genVars;
 private:
 	int minlen;
