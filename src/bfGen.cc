@@ -5,9 +5,6 @@
 
 
 bfGen::bfGen(void)
-: genVars(0)
-, minlen(0)
-, maxlen(0)
 {
 }
 
