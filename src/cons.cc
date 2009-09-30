@@ -11,8 +11,8 @@ void print_usage() {
 	cout << "|  -s symbol list  / string to generate from              |\n";
 	cout << "|  -k the key to find                                     |\n";
 	cout << "|  -g generator                                           |\n";
-	cout << "|                                                         |\n";
-	cout << "|                                                         |\n";
+	cout << "|  -l minimum length of the password - default 1          |\n";
+	cout << "|  -L maximul length of the password - default 10         |\n";
 	cout << "|                                                         |\n";
 	cout << "+---------------------------------------------------------+\n";
 	system("PAUSE");
@@ -21,7 +21,7 @@ void print_usage() {
 //check the parameters and if something is wrong return false
 
 bool prase_command_line(int argc, char* argv[], bool *gen, char key[],
-		char alfabet[]) {
+		char alfabet[], int *l, int *L) {
 
 	if (argc < 2) {
 		return false;
@@ -29,6 +29,8 @@ bool prase_command_line(int argc, char* argv[], bool *gen, char key[],
 
 	memset(key, 0, 33);
 	memset(alfabet, 0, 256);
+	*l=1;
+	*L=10;
 	*gen = false;
 
 	for (int i = 0; i < argc; i++) {
@@ -45,7 +47,14 @@ bool prase_command_line(int argc, char* argv[], bool *gen, char key[],
 			case 'g':
 				*gen = true;
 				break;
-
+			case 'l':
+				i++;
+				*l = atoi(argv[i]);
+				break;
+			case 'L':
+				i++;
+				*L = atoi(argv[i]);
+				break;
 			}
 		}
 	}

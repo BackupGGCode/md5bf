@@ -51,15 +51,7 @@ int bfGen::getStr(char buff[],char hex_output[])
 	}
 	buff[length]=0;
 	genVars++;
-
-	md5_state_t state;
-	md5_byte_t digest[16];
-	md5_init(&state);
-	md5_append(&state, (const md5_byte_t *)buff, strlen(buff));
-	md5_finish(&state, digest);
-	for (int di = 0; di < 16; ++di)
-	    sprintf(hex_output + di * 2, "%02x", digest[di]);
-
+	makeMd(buff,hex_output);
 	if(incContor(length-1)!=0)
 	{
 		if(length==maxlen)
